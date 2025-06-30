@@ -1,0 +1,125 @@
+@import "macchiato.css";
+
+* {
+  font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 13px;
+}
+
+button {
+  box-shadow: inset 0 -3px transparent;
+  border: none;
+  border-radius: 0;
+}
+
+button:hover {
+  background: inherit;
+  box-shadow: inset 0 -3px #ffffff;
+}
+
+#pulseaudio:hover,
+#network:hover,
+#custom-power:hover,
+#custom-powermode:hover {
+  background-color: @surface2;
+  box-shadow: inset 0 -3px #ffffff;
+}
+
+#custom-power {
+  padding: 0 10px;
+  color: @red;
+  font-weight: bold;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  background-color: transparent;
+  color: #ffffff;
+}
+
+#workspaces button:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+  background-color: @lavender;
+  box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.urgent {
+  background-color: #eb4d4b;
+}
+
+#clock {
+  color: @flamingo;
+  font-weight: bold;
+}
+
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#custom-powermode {
+  padding: 0 10px;
+}
+
+#pulseaudio {
+  color: @maroon;
+}
+
+#network {
+  color: @yellow;
+}
+
+#cpu {
+  color: @sapphire;
+}
+
+#battery {
+  padding: 0 10px;
+  color: @green;
+  font-weight: bold;
+}
+
+#battery.charging {
+  color: @sapphire;
+}
+
+#battery.warning {
+  color: #f5a623;
+}
+
+#battery.critical {
+  color: #ffffff;
+  background-color: #f53c3c;
+  border-radius: 6px;
+  padding: 0 8px;
+}
+
+.modules-right,
+.modules-left,
+.modules-center {
+  background-color: @base;
+  border-radius: 15px;
+}
+
+.modules-right {
+  padding: 0 10px;
+}
+
+.modules-left {
+  padding: 0 20px;
+}
+
+.modules-center {
+  padding: 0 10px;
+}
+
+#pulseaudio.muted {
+  color: @text;
+}

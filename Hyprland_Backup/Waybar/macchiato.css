@@ -1,0 +1,20 @@
+
+@define-color base #24273A;
+@define-color mantle #1E2030;
+@define-color crust #181926;
+
+@define-color text #CAD3F5;
+@define-color subtext0 #A5ADCB;
+@define-color subtext1 #B8C0E0;
+
+@define-color surface0 #363A4F;
+@define-color surface1 #494D64;
+@define-color surface2 #5B6078;
+
+@define-color red #ED8796;
+@define-color green #A6DA95;
+@define-color yellow #EED49F;
+@define-color blue #8AADF4;
+@define-color magenta #F5BDE6;
+@define-color cyan #8BD5CA;
+@define-color white #F0FFFF;

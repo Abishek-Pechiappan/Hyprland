@@ -1,0 +1,101 @@
+{
+  "margin-top": 5,
+  "margin-left": 10,
+  "margin-right": 10,
+  "height": 30,
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "cpu"
+  ],
+
+  "modules-center": [
+    "clock"
+  ],
+
+  "modules-right": [
+    "custom/powermode",
+    "pulseaudio",
+    "network",
+    "battery",
+    "custom/power"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "active": "●",
+      "default": "○"
+    },
+    "sort-by-number": true,
+    "persistent-workspaces": {
+      "*": 1,
+      "HDMI-A-1": 3
+    },
+    "smooth-scrolling-threshold": 100,
+    "animation-duration": 300
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": false,
+    "on-click": "systemctl hibernate",
+    "on-click-right": "reboot"
+  },
+
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "⏳ {:%I:%M %p}",
+    "format-alt": "{:%Y-%m-%d}",
+    "interval": 1
+  },
+
+  "cpu": {
+    "format": "⚛︎ {usage}%",
+    "tooltip": false,
+    "interval": 1
+  },
+
+  "battery": {
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{icon} {capacity}%",
+    "format-icons": ["󰂎", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-charging": " {capacity}%",
+    "tooltip-format": "Discharging: {time}",
+    "tooltip-format-charging": "Charging: {time}",
+    "interval": 1,
+    "min-length": 6,
+    "max-length": 6
+  },
+
+  "network": {
+    "format-wifi": "🛰️ Online",
+    "format-ethernet": "🌐 Lan-Online",
+    "format-disconnected": "💀 Offline",
+    "tooltip": false,
+    "interval": 1
+  },
+
+  "pulseaudio": {
+    "format": "🔊 {volume}%",
+    "format-bluetooth": "🎧 {volume}%",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol",
+    "smooth-scrolling-threshold": 100,
+    "animation-duration": 300
+  }
+}

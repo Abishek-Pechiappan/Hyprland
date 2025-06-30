@@ -1,0 +1,64 @@
+* {
+    font: "JetBrainsMono Nerd Font 14";
+    border: 0;
+    margin: 0;
+    padding: 0;
+    text-color: #ffffff;
+    background-color: transparent;
+}
+
+window {
+    transparency: "real";
+    background-color: rgba(30, 30, 30, 0.3);  // Not fully transparent
+    border-radius: 12px;
+}
+
+mainbox {
+    padding: 10px;
+    background-color: rgba(20, 20, 20, 0.4);
+    border-radius: 12px;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    padding: 10px;
+    background-color: rgba(40, 40, 40, 0.5);
+    border-radius: 8px;
+    spacing: 8px;
+    children: [ icon, entry ];
+}
+
+icon {
+    expand: false;
+    size: 18px;
+    text: "🔍";
+    vertical-align: 0.5;
+}
+
+entry {
+    placeholder: "Search...";
+    text-color: #ffffff;
+    expand: true;
+}
+
+listview {
+    padding: 5px 0px;
+    lines: 6;
+    background-color: transparent;
+    fixed-height: false;
+    spacing: 4px;
+    scrollbar: false;
+}
+
+element {
+    padding: 8px;
+    background-color: transparent;
+    text-color: #ffffff;
+    border-radius: 6px;
+}
+
+element selected {
+    background-color: rgba(255, 255, 255, 0.1);
+    text-color: #ffffff;
+}
+
