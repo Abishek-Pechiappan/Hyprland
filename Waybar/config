@@ -6,7 +6,8 @@
 
   "modules-left": [
     "hyprland/workspaces",
-    "cpu"
+    "cpu",
+    "temperature"
   ],
 
   "modules-center": [
@@ -52,7 +53,7 @@
   },
 
   "cpu": {
-    "format": "⚛︎ {usage}%",
+    "format": "EngineLoad:{usage}%",
     "tooltip": false,
     "interval": 1
   },
@@ -97,5 +98,14 @@
     "on-click": "pavucontrol",
     "smooth-scrolling-threshold": 100,
     "animation-duration": 300
+  },
+  
+  "temperature": {
+      "thermal-zone": 7, 
+      "hwmon-path": "/sys/class/hwmon/hwmon7/temp1_input",
+      "critical-threshold": 80,
+      "format-critical": "{temperatureC}°C",
+      "format": " CoreHeat:{temperatureC}°C",
+	    "on-click": "foot -e btop++"
   }
 }

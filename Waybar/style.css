@@ -18,16 +18,9 @@ button {
 
 button:hover {
   background: inherit;
-  box-shadow: inset 0 -3px #ffffff;
+  box-shadow: inset 0 -3px #524f4f;
 }
 
-#pulseaudio:hover,
-#network:hover,
-#custom-power:hover,
-#custom-powermode:hover {
-  background-color: @surface2;
-  box-shadow: inset 0 -3px #ffffff;
-}
 
 #custom-power {
   padding: 0 10px;
@@ -92,6 +85,10 @@ button:hover {
 
 #battery.warning {
   color: #f5a623;
+}
+
+#temperature {
+  color: white;
 }
 
 #battery.critical {
