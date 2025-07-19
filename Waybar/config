@@ -74,9 +74,9 @@
   },
 
   "network": {
-    "format-wifi": "🛰️ Online",
-    "format-ethernet": "🌐 Lan-Online",
-    "format-disconnected": "💀 Offline",
+    "format-wifi": "Online",
+    "format-ethernet": "Lan-Online",
+    "format-disconnected": "Offline",
     "tooltip": false,
     "interval": 1
   },
