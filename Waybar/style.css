@@ -26,15 +26,14 @@
 @define-color mantle #181825;
 @define-color crust #11111b;
 
-/* Global settings */
 * {
     border: none;
     border-radius: 12px;
     font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", "Font Awesome 6 Brands", monospace;
-    font-size: 14px; /* Default font size */
+    font-size: 14px; 
     min-height: 0;
-    margin: 0; /* Ensure no default margin */
-    padding: 0; /* Ensure no default padding */
+    margin: 0; 
+    padding: 0; 
 }
 
 window#waybar {
@@ -42,11 +41,9 @@ window#waybar {
     border-radius: 5px;
     color: @text;
     margin: 5px;
-    padding: 0px; /* Ensure no padding on the window itself */
+    padding: 0px; 
 }
 
-/* Module styles */
-/* Apply common padding and margin to all modules */
 #hyprland-workspaces,
 #cpu,
 #temperature,
@@ -55,17 +52,17 @@ window#waybar {
 #network,
 #battery,
 #pulseaudio,
-#tray, /* Added tray module */
-#custom-power { /* Added custom power module */
+#tray, 
+#custom-power { 
     background-color: @surface0;
     color: @text;
-    padding: 2px 12px; /* Slightly increased horizontal padding for better look */
-    margin: 0 3px; /* Slightly increased margin between *individual* modules */
+    padding: 2px 12px;
+    margin: 0 3px;
     border-radius: 10px;
-    min-width: 0; /* Ensure modules can shrink if needed */
+    min-width: 0; 
 }
 
-/* States (Warning/Critical colors) */
+
 #cpu.warning, #temperature.warning, #memory.warning, #battery.warning {
     color: @peach;
 }
@@ -74,30 +71,29 @@ window#waybar {
     color: @red;
 }
 
-/* Specific module tweaks */
+
 #hyprland-workspaces {
-    padding-left: 5px; /* Adjust padding for workspaces to look good with buttons */
+    padding-left: 5px; 
     padding-right: 5px;
 }
 
 #hyprland-workspaces button {
-    padding: 0 7px; /* Padding for individual workspace buttons, slightly more horizontal */
+    padding: 0 7px; 
     background-color: transparent;
-    color: @subtext0; /* Default color for inactive workspaces */
-    margin: 0 2px; /* Very small margin between workspace numbers */
+    color: @subtext0; 
+    margin: 0 2px;
     border-radius: 8px;
-    transition: all 0.2s ease-in-out; /* Smooth transition for hover effects */
+    transition: all 0.2s ease-in-out; 
 }
 
 #hyprland-workspaces button.active {
     background-color: @blue;
-    color: @base; /* Active workspace number color */
+    color: @base; 
     border-radius: 8px;
-    font-weight: bold; /* Make active workspace text bold */
+    font-weight: bold; 
 }
 
-#hyprland-workspaces button.urgent { /* Style for urgent (attention-needed) workspaces */
-    background-color: @red;
+#hyprland-workspaces button.urgent { 
     color: @base;
 }
 
@@ -116,31 +112,31 @@ window#waybar {
 }
 
 #tray {
-    background-color: @surface0; /* Apply the same background as other modules */
-    padding: 2px 8px; /* Adjust padding for tray icons */
+    background-color: @surface0; 
+    padding: 2px 8px; 
     margin: 0 3px;
 }
 
 #custom-power {
-    background-color: @mauve; /* Distinct color for the power button */
-    color: @base; /* Text color for the power button */
+    background-color: @mauve; 
+    color: @base; 
     padding: 2px 12px;
-    margin-right: 5px; /* Slightly more margin on the very right */
+    margin-right: 5px; 
     border-radius: 10px;
     transition: background-color 0.2s ease-in-out;
 }
 
 #custom-power:hover {
-    background-color: @red; /* Change color on hover to indicate action */
+    background-color: @red; 
     color: @crust;
 }
 
-/* Tooltips */
+
 #waybar .tooltip {
     background-color: @crust;
     color: @text;
     border-radius: 8px;
     padding: 10px;
     border: 1px solid @surface1;
-    font-size: 13px; /* Slightly smaller font for tooltips */
+    font-size: 13px; 
 }
