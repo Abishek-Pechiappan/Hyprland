@@ -1,4 +1,4 @@
-/* Catppuccin Macchiato colors (unchanged) */
+/* Catppuccin Macchiato colors */
 @define-color rosewater #f5e0dc;
 @define-color flamingo #f2cdcd;
 @define-color pink #f5c2e7;
@@ -28,83 +28,83 @@
 
 * {
     border: none;
-    border-radius: 12px;
-    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", "Font Awesome 6 Brands", monospace;
-    font-size: 14px; 
+    border-radius: 15px;
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", monospace;
+    font-size: 14px;
     min-height: 0;
-    margin: 0; 
-    padding: 0; 
+    margin: 0;
+    padding: 0;
 }
 
 window#waybar {
     background-color: transparent;
-    border-radius: 5px;
     color: @text;
-    margin: 5px;
-    padding: 0px; 
+    margin: 0px;
+    padding: 0px;
+
+    /* Added transition for autohide */
+    transition: margin-top 0.3s ease, opacity 0.3s ease;
 }
 
-#hyprland-workspaces,
-#cpu,
-#temperature,
-#memory,
-#clock,
-#network,
-#battery,
-#pulseaudio,
-#tray, 
-#custom-power { 
-    background-color: @surface0;
+window#waybar.hidden {
+    margin-top: -40px; /* slide up (a bit more than your height: 35px) */
+    opacity: 0;
+}
+
+/* Base style for all modules using the ".module" class */
+.module {
+    background: linear-gradient(to bottom, rgba(69, 71, 90, 0.8), rgba(49, 50, 68, 0.7));
+    border: 1px solid rgba(180, 190, 254, 1);
+    border-top: 1px solid rgba(205, 214, 244, 1);
     color: @text;
     padding: 2px 12px;
-    margin: 0 3px;
-    border-radius: 10px;
-    min-width: 0; 
+    margin: 0 0px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
 }
 
-
-#cpu.warning, #temperature.warning, #memory.warning, #battery.warning {
+/* Warning & Critical States */
+.module#cpu.warning, .module#temperature.warning, .module#memory.warning, .module#battery.warning {
     color: @peach;
 }
 
-#cpu.critical, #temperature.critical, #memory.critical, #battery.critical {
+.module#cpu.critical, .module#temperature.critical, .module#memory.critical, .module#battery.critical {
     color: @red;
 }
 
-
+/* Workspaces */
 #hyprland-workspaces {
-    padding-left: 5px; 
-    padding-right: 5px;
+    background-color: rgba(49, 50, 68, 0.7);
+    padding: 2px 5px;
 }
 
 #hyprland-workspaces button {
-    padding: 0 7px; 
+    padding: 0 7px;
     background-color: transparent;
-    color: @subtext0; 
+    color: @subtext0;
     margin: 0 2px;
     border-radius: 8px;
-    transition: all 0.2s ease-in-out; 
-}
-
-#hyprland-workspaces button.active {
-    background-color: @blue;
-    color: @base; 
-    border-radius: 8px;
-    font-weight: bold; 
-}
-
-#hyprland-workspaces button.urgent { 
-    color: @base;
+    border: 1px solid transparent;
+    transition: all 0.2s ease-in-out;
 }
 
 #hyprland-workspaces button:hover {
-    background-color: @surface1;
+    background: linear-gradient(to bottom, rgba(88, 91, 112, 0.8), rgba(69, 71, 90, 0.7));
     color: @text;
-    border-radius: 8px;
+    border: 1px solid rgba(180, 190, 254, 0.2);
 }
 
+#hyprland-workspaces button.active {
+    background: linear-gradient(to bottom, @sky, @blue);
+    color: @base;
+    border: 1px solid @blue;
+    font-weight: bold;
+}
+
+/* Specific Modules */
 #network.disconnected {
-    color: @subtext0;
+    background: linear-gradient(to bottom, rgba(243, 139, 168, 0.8), rgba(235, 160, 172, 0.7));
+    color: @text;
 }
 
 #pulseaudio.muted {
@@ -112,31 +112,27 @@ window#waybar {
 }
 
 #tray {
-    background-color: @surface0; 
-    padding: 2px 8px; 
-    margin: 0 3px;
+    padding: 2px 8px;
 }
 
 #custom-power {
-    background-color: @mauve; 
-    color: @base; 
-    padding: 2px 12px;
-    margin-right: 5px; 
-    border-radius: 10px;
-    transition: background-color 0.2s ease-in-out;
+    background: linear-gradient(to bottom, rgba(203, 166, 247, 0.7), rgba(203, 166, 247, 0.6));
+    border: 1px solid rgba(203, 166, 247, 0.6);
+    color: @text;
 }
 
 #custom-power:hover {
-    background-color: @red; 
+    background: linear-gradient(to bottom, @red, @maroon);
     color: @crust;
+    border-color: @maroon;
 }
 
-
+/* Tooltips */
 #waybar .tooltip {
     background-color: @crust;
     color: @text;
     border-radius: 8px;
     padding: 10px;
     border: 1px solid @surface1;
-    font-size: 13px; 
+    font-size: 13px;
 }

@@ -1,11 +1,14 @@
 {
     "layer": "top",
     "position": "top",
-    "margin-top":3,
+    "autohide": true,
+    "autohide-delay": 0,
+    "margin-top": 3,
     "height": 35,
-    "spacing": 4, 
+    "spacing": 4,
 
     "modules-left": [
+        "hyprland/workspaces",
         "cpu",
         "temperature",
         "memory"
@@ -19,50 +22,61 @@
         "pulseaudio",
         "tray"
     ],
+
     "hyprland/workspaces": {
-        "format": "{id}",
-        "format-icons": {},
-        "on-click": "activate"
+    "class": "module",
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+        "default": "○",
+        "active": "●"
+    }
     },
     "cpu": {
-        "interval": 2,
-        "format": "CPU: {usage}%",
-        "tooltip": true,
-        "states": { "warning": 70, "critical": 90 }
-    },
-    "temperature": {
-        "interval": 5,
-        "thermal-zone": 7,
-        "hwmon-path": "/sys/class/hwmon/hwmon7/temp1_input",
-        "critical-threshold": 80,
-        "format": "Temp: {temperatureC}°C",
-        "format-critical": "Temp: {temperatureC}°C ",
-        "tooltip": true,
-        "states": { "warning": 55, "critical": 65 },
-        "on-click": "foot -e btop++"
-    },
-    "memory": {
-        "interval": 2,
-        "format": "Mem: {used:0.1f}G ({percentage}%)", 
-        "tooltip": true,
-        "states": { "warning": 70, "critical": 90 }
-    },
+    "interval": 2,
+    "format": " {usage}%",
+    "tooltip": true,
+    "states": { "warning": 70, "critical": 90 },
+    "on-click": "foot -e btop++"
+},
+"temperature": {
+    "interval": 5,
+    "thermal-zone": 7,
+    "hwmon-path": "/sys/class/hwmon/hwmon7/temp1_input",
+    "critical-threshold": 80,
+    "format": " {temperatureC}°C",
+    "format-critical": " {temperatureC}°C",
+    "tooltip": true,
+    "states": { "warning": 55, "critical": 65 },
+    "on-click": "foot -e btop++"
+},
+"memory": {
+    "interval": 2,
+    "format": "󰘚 {percentage}%",
+    "tooltip": true,
+    "states": { "warning": 70, "critical": 90 },
+    "on-click": "foot -e btop++"
+},
     "clock": {
+        "class": "module",
         "interval": 1,
         "format": "{:%H:%M}",
         "format-alt": "{:%a, %d %b}",
-        "tooltip-format": "<big>{:%Y %B %d}</big>\n<small>{:%A %H:%M}</small>"
+        "tooltip-format": "<big>{:%Y %B %d}</big>\n<small>{:%A %H:%M}</small>",
+        "on-click": "mode"
     },
     "network": {
-        "interval": 5,
-        "format-wifi": "  Connected",
-        "format-ethernet": " Connected",
-        "format-disconnected": "睊 Disconnected",
-        "tooltip-format-wifi": "SSID: {essid}\nIP: {ipaddr}/{cidr}\nSignal: {signalStrength}%", // Added signal strength
-        "tooltip-format-ethernet": "IP: {ipaddr}/{cidr}",
-        "tooltip-format-disconnected": "No network connection"
+    "class": "module",
+    "interval": 5,
+    "format-wifi": " {essid}",
+    "format-ethernet": " {ipaddr}",
+    "format-disconnected": "󰖪 Disconnected",
+    "tooltip-format-wifi": "SSID: {essid}\nIP: {ipaddr}/{cidr}\nSignal: {signalStrength}%",
+    "tooltip-format-ethernet": "IP: {ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "No network connection"
     },
     "battery": {
+        "class": "module",
         "interval": 10,
         "format": "{icon} {capacity}%",
         "format-charging": "AC {capacity}%",
@@ -73,21 +87,24 @@
         "states": { "warning": 30, "critical": 15 }
     },
     "pulseaudio": {
+        "class": "module",
         "format": "墳 {volume}%",
-        "format-muted": "ﱜ Muted",
-        "scroll-step": 1,
+        "format-muted": "Muted",
+        "scroll-step": 5,
         "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
         "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "on-click-right": "pavucontrol"
     },
     "tray": {
+        "class": "module",
         "icon-size": 18,
         "spacing": 8
     },
     "custom/power": {
-        "format": " Shutdown", 
+        "class": "module",
+        "format": "",
         "tooltip": "Power Menu",
-        "on-click": "exec wlogout" 
+        "on-click": "exec wlogout"
     }
 }
