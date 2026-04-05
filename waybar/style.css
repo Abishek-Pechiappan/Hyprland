@@ -1,0 +1,192 @@
+/* ── Reset ── */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    font-family: "JetBrainsMono Nerd Font", "JetBrainsMonoNL Nerd Font";
+    font-size: 14px;
+}
+
+/* ── Bar ── */
+window#waybar {
+    background: transparent;
+    border-bottom: none;
+    color: #abb2bf;
+}
+
+/* ── Module containers ── */
+.modules-left,
+.modules-center,
+.modules-right {
+    padding: 0 4px;
+}
+
+/* ── Shared module style ── */
+#clock,
+#custom-notification,
+#custom-pacman,
+#custom-power,
+#custom-microphone,
+#network,
+#bluetooth,
+#custom-battery,
+#custom-volume,
+#custom-brightness,
+#custom-power-profile,
+#tray,
+#custom-workspace-1,
+#custom-workspace-2,
+#custom-workspace-3,
+#custom-workspace-4 {
+    background: #292d35;
+    border: 1px solid #3e4451;
+    border-radius: 6px;
+    padding: 4px 12px;
+    margin: 5px 3px;
+    color: #abb2bf;
+    transition: all 0.2s ease-in-out;
+}
+
+/* ── Clock ── */
+#clock {
+    font-weight: bold;
+    color: #fab387;
+    border-color: #61afef;
+}
+
+/* ── Power ── */
+#custom-power {
+    color: #e06c75;
+    border-color: #e06c75;
+}
+
+#custom-power:hover {
+    background: #3b222a;
+    border-color: #f38ba8;
+    color: #f38ba8;
+}
+
+/* ── Network ── */
+#network.disconnected {
+    background: #3b222a;
+    border-color: #e06c75;
+    color: #e06c75;
+}
+
+/* ── Bluetooth ── */
+#bluetooth.disabled {
+    color: #4c566a;
+    border-color: #3e4451;
+}
+
+/* ── Pacman updates ── */
+#custom-pacman {
+    color: #e5c07b;
+    border-color: #e5c07b;
+}
+
+/* ── Notification ── */
+#custom-notification {
+    color: #56b6c2;
+    border-color: #56b6c2;
+}
+
+/* ── Microphone ── */
+#custom-microphone {
+    color: #abb2bf;
+}
+
+/* ── Workspaces ── */
+#custom-workspace-1,
+#custom-workspace-2,
+#custom-workspace-3,
+#custom-workspace-4 {
+    padding: 4px 14px;
+    color: #4c566a;
+    border-color: #3e4451;
+    font-size: 13px;
+}
+
+#custom-workspace-1:hover,
+#custom-workspace-2:hover,
+#custom-workspace-3:hover,
+#custom-workspace-4:hover {
+    background: #2c313c;
+    border-color: #56b6c2;
+    color: #56b6c2;
+}
+
+/* ── Power Profile ── */
+#custom-power-profile.power-saver {
+    color: #a8cc8c;
+    border-color: #a8cc8c;
+}
+
+#custom-power-profile.balanced {
+    color: #61afef;
+    border-color: #61afef;
+}
+
+#custom-power-profile.performance {
+    color: #e06c75;
+    border-color: #e06c75;
+}
+
+#custom-power-profile:hover {
+    background: #2c313c;
+    border-color: #56b6c2;
+    color: #56b6c2;
+}
+
+/* ── Battery / Volume / Brightness ── */
+#custom-battery,
+#custom-volume,
+#custom-brightness {
+    color: #56b6c2;
+}
+
+/* ── Tray ── */
+#tray {
+    padding: 4px 10px;
+}
+
+#tray menu {
+    background: #282c34;
+    border: 1px solid #3e4451;
+    border-radius: 6px;
+    color: #abb2bf;
+}
+
+#tray menu * {
+    padding: 2px 8px;
+}
+
+/* ── Universal hover ── */
+#clock:hover,
+#custom-notification:hover,
+#custom-microphone:hover,
+#network:hover,
+#bluetooth:hover,
+#custom-battery:hover,
+#custom-volume:hover,
+#custom-brightness:hover,
+#custom-pacman:hover,
+#tray:hover {
+    background: #2c313c;
+    border-color: #56b6c2;
+    color: #56b6c2;
+}
+
+/* ── Tooltip ── */
+tooltip {
+    background: #3b4252;
+    color: #56b6c2;
+    border: 1px solid #4c566a;
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-weight: bold;
+}
+
+tooltip label {
+    color: #78bec7;
+}

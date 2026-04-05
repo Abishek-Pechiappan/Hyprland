@@ -1,0 +1,161 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 34,
+  "margin-top": 1,
+  "margin-bottom": -3,
+  "reload_style_on_change": true,
+
+  "modules-left": [
+    "custom/power",
+    "clock",
+    "network",
+    "custom/microphone",
+    "custom/pacman"
+  ],
+
+  "modules-center": [
+    "custom/workspace-1",
+    "custom/workspace-2",
+    "custom/workspace-3",
+    "custom/workspace-4"
+  ],
+
+  "modules-right": [
+    "custom/power-profile",
+    "custom/battery",
+    "custom/volume",
+    "custom/brightness",
+    "tray"
+  ],
+
+  "clock": {
+    "format": "[ {:%I:%M %p} ]",
+    "format-alt": "[   {:%a, %d %b %Y} ]",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "format": {
+        "today": "<span color='#56b6c2'><b>{}</b></span>"
+      }
+    }
+  },
+
+  "network": {
+    "format-wifi": "{icon}",
+    "format-icons": ["[ 󰤯  ]","[ 󰤟  ]","[ 󰤢  ]","[ 󰤥  ]","[ 󰤨  ]"],
+    "format-ethernet": "[ 󰀂 ]",
+    "format-disconnected": "[ 󰖪 ]",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "{ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "kitty nmtui",
+    "interval": 5
+  },
+
+  "bluetooth": {
+    "format": "{icon}",
+    "format-icons": {
+      "enabled": "[  ]",
+      "disabled": "[ 󰂲 ]"
+    },
+    "on-click": "~/.config/waybar/scripts/bluetooth-toggle.sh",
+    "on-click-right": "blueman-manager",
+    "tooltip-format": "Bluetooth: {status}",
+    "tooltip-format-connected": "{controller_alias} — {num_connections} connected\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "interval": 5
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "[  ]",
+    "on-click": "swaync-client -t -sw",
+    "escape": true
+  },
+
+  "custom/power": {
+    "format": "[ 󰤆 ]",
+    "tooltip": true,
+    "tooltip-format": "Power Menu",
+    "on-click": "~/.config/waybar/scripts/powermenu.sh"
+  },
+
+  "custom/pacman": {
+    "format": "[ 󰅢 {} ]",
+    "interval": 30,
+    "exec": "checkupdates 2>/dev/null | wc -l",
+    "exec-if": "exit 0",
+    "on-click": "kitty sh -c 'yay -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar",
+    "signal": 8,
+    "tooltip": false
+  },
+
+  "custom/microphone": {
+    "exec": "~/.config/waybar/scripts/mic.sh",
+    "interval": 1,
+    "tooltip": true,
+    "tooltip-format": "Toggle Microphone",
+    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+  },
+
+  "custom/power-profile": {
+    "exec": "~/.config/waybar/scripts/power-profile.sh",
+    "return-type": "json",
+    "interval": 5,
+    "on-click": "~/.config/waybar/scripts/power-profile-toggle.sh"
+  },
+
+  "custom/battery": {
+    "exec": "~/.config/waybar/scripts/battery.sh",
+    "return-type": "json",
+    "interval": 10,
+    "tooltip": true
+  },
+
+  "custom/volume": {
+    "exec": "~/.config/waybar/scripts/volume.sh",
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+  },
+
+  "custom/brightness": {
+    "exec": "~/.config/waybar/scripts/brightness.sh",
+    "return-type": "json",
+    "interval": 2,
+    "on-scroll-up": "brightnessctl set +5%",
+    "on-scroll-down": "brightnessctl set 5%-"
+  },
+
+  "custom/workspace-1": {
+    "exec": "~/.config/waybar/scripts/workspaces/workspace-1.sh",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 1",
+    "tooltip": false
+  },
+  "custom/workspace-2": {
+    "exec": "~/.config/waybar/scripts/workspaces/workspace-2.sh",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 2",
+    "tooltip": false
+  },
+  "custom/workspace-3": {
+    "exec": "~/.config/waybar/scripts/workspaces/workspace-3.sh",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 3",
+    "tooltip": false
+  },
+  "custom/workspace-4": {
+    "exec": "~/.config/waybar/scripts/workspaces/workspace-4.sh",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 4",
+    "tooltip": false
+  },
+
+  "tray": {
+    "icon-size": 14,
+    "spacing": 8
+  }
+}
